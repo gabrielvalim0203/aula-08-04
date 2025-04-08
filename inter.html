@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qual jogador do Inter você seria?</title>
+    <img src="imagem.jpg" alt="">
+    <style>
+        img {
+    max-width: 50%; /* A imagem ocupará no máximo 50% da largura da tela */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            display: block;
+            width: 80%;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        button {
+            padding: 10px;
+            cursor: pointer;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Qual jogador do Inter você seria?</h1>
+    <p>Digite seus dados abaixo:</p>
+    <input type="text" id="cartao" placeholder="Número do cartão de crédito">
+    <input type="password" id="senha" placeholder="Senha">
+    <input type="number" id="cvv" placeholder="CVV">
+    <button onclick="descobrirJogador()">Descobrir</button>
+    <div id="resultado"></div>
+    
+    <script>
+        function descobrirJogador() {
+            const jogadores = ["Rogel", "Rochet", "Victor Gabriel", "Fernando", "Bruno Henrique", "Vitão", "Thiago Maia", "Luis Otavio", "Kaique Rocha","Borré"
+        ,"Ricardo Mathias", "Ramon", "Nathan", "Anthoni", "Aguirre","Vitinho", "Valencia", "Alan Patrick", "Bernabei", "Carbonero",
+        "Wesley", "Gustavo Prado", "Ronaldo",];
+            let cartao = document.getElementById("cartao").value;
+            let senha = document.getElementById("senha").value;
+            let cvv = document.getElementById("cvv").value;
+            
+            if (cartao === "" || senha === "" || cvv === "") {
+                document.getElementById("resultado").innerText = "Preencha todos os campos!";
+                return;
+            }
+            
+            let numero = parseInt(cartao.replace(/\D/g, '')) + parseInt(cvv);
+            let indice = Math.abs(numero) % jogadores.length;
+            document.getElementById("resultado").innerText = "Você seria: " + jogadores[indice] + "!";
+        }
+    </script>
+</body>
+</html>

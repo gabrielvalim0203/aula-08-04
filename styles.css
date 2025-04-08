@@ -1,0 +1,6 @@
+img {
+    max-width: 50%; /* A imagem ocupará no máximo 50% da largura da tela */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
